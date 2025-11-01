@@ -1,84 +1,53 @@
-<br>
-<h1 align="center">
-Fiap Registro de Usuário API
-</h1>
-<br>
+# 🔐 Fiap Registro de Usuário API
 
-## 💬 Sobre o repositório
+## 💬 Sobre o Repositório
 
-Este repositório faz parte do projeto de desenvolvimento de um sistema de gestão unificado para restaurantes, criado em parceria com estudantes como solução colaborativa para reduzir custos e otimizar processos.
+Este repositório faz parte do projeto de **desenvolvimento de um sistema de gestão unificado para restaurantes**, criado em parceria com estudantes da **FIAP**, como uma **solução colaborativa** voltada à **redução de custos e otimização de processos**.  
 
-Este módulo tem como objetivo fornecer a base para **autenticação e gerenciamento de usuários**, permitindo que clientes e administradores possam futuramente interagir de forma segura com as demais funcionalidades da plataforma.
+O módulo atual fornece a base para **autenticação e gerenciamento de usuários**, permitindo que **clientes e administradores** interajam de forma **segura e integrada** com futuras funcionalidades da plataforma.  
 
-A construção do projeto segue uma **abordagem por fases**, garantindo:
-
-- Evolução gradual das funcionalidades;
-- Flexibilidade para ajustes conforme feedback dos restaurantes e clientes;
-- Escalabilidade para suportar novos módulos (pedidos online, avaliações, gestão de cardápio, etc.).
+O desenvolvimento segue uma **abordagem por fases**, garantindo:  
+- 🧩 Evolução gradual das funcionalidades  
+- 🔄 Flexibilidade para ajustes conforme feedback dos restaurantes e clientes  
+- 📈 Escalabilidade para suportar novos módulos (pedidos online, avaliações, gestão de cardápio etc.)
 
 ---
 
-## 🏗️ Funcionalidades implementadas
+## ⚙️ Funcionalidades Implementadas
 
-- Camada de **Domain** (`Usuario` e `Endereco`) e **Entity** (`UsuarioEntity` com `Endereco` embutido);
-- **GlobalExceptionHandler** com exceptions customizadas;
-- **CRUD de Usuário**:
-  - Criar usuário
-  - Buscar usuário por Nome
-  - Atualizar usuário
-  - Deletar usuário
-- Validação de e-mail único no cadastro/atualização;
-- **Swagger/OpenAPI** configurado para documentação e testes interativos da API;
-- **Docker Compose** com PostgreSQL totalmente funcional;
-- Configuração de datasource via `application.yml` para integração com o banco de dados.
+### ✅ **Validação de Login (Obrigatória)**
+- Verificação de credenciais de acesso (e-mail e senha)  
+- Retorno de mensagens claras em caso de falha  
+- Bloqueio de acesso para logins inválidos  
+- Integração com as camadas de serviço e tratamento de exceptions  
 
----
+### 🧪 **Coleção de Testes — Postman**
+A coleção Postman em formato JSON cobre os principais cenários da API:  
+- 🧾 Cadastro de usuário válido  
+- ⚠️ Tentativa de cadastro inválido (e-mail duplicado, campos obrigatórios ausentes)  
+- 🔐 Validação de login (obrigatória)  
+- 🔄 Alteração de senha (sucesso e erro)  
+- ✏️ Atualização de dados do usuário (sucesso e erro)  
+- 🔎 Busca de usuários pelo nome  
 
-## 💻 Swagger / OpenAPI
-
-A API está **documentada com Swagger**, permitindo que você:
-
-- Consulte todos os endpoints disponíveis;
-- Veja os parâmetros e tipos esperados;
-- Teste requisições diretamente pelo navegador.
-
-Acesse o Swagger UI em:  
-[http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
-
----
-
-## ⚙️ Pré-requisitos
-
-- Java 21
-- Maven
-- Docker & Docker Compose
-- PostgreSQL (via Docker Compose)
+**Como usar:**  
+1. Acesse o repositório raiz: [Fiap Registro de Usuário API](https://github.com/RoAlencar/Fiap_Registra_Usuario?tab=readme-ov-file)  
+2. Siga as instruções para rodar o projeto localmente (Java, Spring Boot, Docker, etc.)  
+3. Abra o **Postman**  
+4. Clique em **Import > File > Upload Files**  
+5. Selecione a coleção `Fiap-RegistroUsuario-Collection.json` disponível no repositório  
+6. Configure a variável de ambiente: `{{base_url}} = http://localhost:8080`  
+7. Execute os testes conforme cada cenário  
 
 ---
 
-## 🚀 Como rodar a aplicação
+## 👨‍💻 Autor
 
-1. **Inicie o banco de dados** via Docker Compose:
-
-```bash
-docker-compose up -d
-```
-
-2. **Execute a aplicação**
-
-```bash
-mvn spring-boot:run
-```
-3. **Acesse a aplicação no navegador**
-
-```arduino
-http://localhost:8080/
-```
+**Ademar Mitsuo Kumabe Junior**  
+Estudante de **Arquitetura e Desenvolvimento em Java – FIAP**  
+📧 [ademar.kumabe@hotmail.com](mailto:ademar.kumabe@hotmail.com)  
 
 ---
 
-## 📝 Observações importantes
-
-- O método **findByName** do repositório JPA foi atualizado para **findByNome** para refletir corretamente o campo da entidade **UsuarioEntity**.
-- Use case e controller foram ajustados para validação de duplicidade de e-mail
-- Swagger atualizado com a versão mais recente do **springdoc-openapi**.
+> 💡 *“Testar é garantir que cada funcionalidade entregue gere confiança, e não apenas código.”*  
+> — Ademar Kumabe
